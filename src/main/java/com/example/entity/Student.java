@@ -39,8 +39,9 @@ public class Student {
     @Column(nullable = false, length = 100)
     private String department;
 
-    @Column(nullable = false)
-    private int year;    // Academic year (1 to 4)
+    @NotNull(message = "Academic year is required")
+    @Column(name = "academic_year", nullable = false)
+    private Integer year;    // Academic year (1 to 4)
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(

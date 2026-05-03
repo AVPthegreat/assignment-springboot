@@ -35,10 +35,11 @@ public class Course {
     @Column(nullable = false, length = 100)
     private String instructor;
 
+    @NotNull(message = "Credits are required")
     @Min(value = 1, message = "Credits must be at least 1")
     @Max(value = 6, message = "Credits cannot exceed 6")
     @Column(nullable = false)
-    private int credits;
+    private Integer credits;
 
     @NotBlank(message = "Department is required")
     @Column(nullable = false, length = 100)
